@@ -4,25 +4,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>21-card-game</title>
     <link rel="stylesheet" href="style.css" />
+    <title>Black Jack</title>
   </head>
   <body>
     <header>
-      <h1>BlackJack</h1>
+      <h1>Black Jack</h1>
     </header>
+
     <main>
-      <section class="computer">
-        <div class="computer-score"></div>
-        <div class="computer-draw"></div>
+      <section class="buttons">
+        <button class="play">Hit me !</button>
+        <button class="stop">I'm done</button>
       </section>
-      <section class="player">
+      <section class="game">
         <div class="player-score"></div>
         <div class="player-draw"></div>
-        <button id="aceValue1" class="ace1">1</button>
-        <button id="aceValue11" class="ace11">11</button>
-        <button id="playButton" class="play">Hit me</button>
-        <button class="stop">I'm done</button>
+        <div class="computer-score"></div>
+        <div class="computer-draw"></div>
+        <button class="ace-one">1</button>
+        <button class="ace-eleven">11</button>
       </section>
       <section class="result">
         <div class="round-result"></div>
@@ -30,6 +31,6 @@
         <div class="player-total"></div>
       </section>
     </main>
-    <script src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
   </body>
 </html>

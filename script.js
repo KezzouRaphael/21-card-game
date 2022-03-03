@@ -7,11 +7,13 @@ let cardsArray = [1,2,3,4,5,6,7,8,9,10,11,12,13];
 //Selectors
 let buttonPlay = document.querySelector(".play");
 let buttonStop = document.querySelector(".stop");
-let buttonAce1 = document.querySelector(".ace1");
-let buttonAce2 = document.querySelector(".ace11");
+let buttonAce1 = document.querySelector(".ace-one");
+let buttonAce2 = document.querySelector(".ace-eleven");
 //EventListeners
 buttonPlay.addEventListener("click",turn);
 buttonStop.addEventListener("click",stop);
+buttonAce1.addEventListener("click",ace1);
+buttonAce2.addEventListener("click",ace2);
 //Shuffle cards
 function shuffle(array) {
   let currentIndex = array.length,  randomIndex;
@@ -70,7 +72,7 @@ function turn(e){
     stop();
   }
 };
-while(playerScore == 21 && dealerScore <15)
+while(playerScore >= 21 && dealerScore <15)
 {
   dealerTurn();
 }
@@ -106,14 +108,14 @@ function displayCard(cardP,nameP,classDrawNameP,classScoreP,scoreP)
       if(nameP == "You")
       {
         document.querySelector(classDrawNameP).textContent = `You draw : An ace choose its value`;
-        playerScore+=1;
-        document.querySelector(classScoreP).textContent = `Your score is : ${playerScore}`;
-        buttonAce1.style.display = "visible";
-        buttonAce2.style.display = "visible";
+        buttonAce1.style.visibility = "visible";
+        buttonAce2.style.visibility = "visible";
+        buttonPlay.disabled = true;
+        buttonStop.disabled = true;
       }
       else
       {
-        if( (dealerScore <=3) || (dealerscore > 5 && dealerscore < 11))
+        if( (dealerScore <=3) || (dealerScore > 5 && dealerScore < 11))
         {
           document.querySelector(classDrawNameP).textContent = `${nameP} draw : An ace and choosed 11 as its value`;
           dealerScore+=11;
@@ -186,3 +188,24 @@ function displayCard(cardP,nameP,classDrawNameP,classScoreP,scoreP)
   }
   
 }
+
+function ace1(e){
+  console.log("test 1");
+  document.querySelector(".player-draw").textContent = `You choosed 1`;
+  playerScore+=1;
+  document.querySelector(".player-score").textContent = `Your score is : ${playerScore}`;
+  buttonAce1.style.visibility = "hidden";
+  buttonAce2.style.visibility = "hidden";
+  buttonPlay.disabled = false;
+  buttonStop.disabled = false;
+};
+function ace2(e){
+  console.log("test 11");
+  document.querySelector(".player-draw").textContent = `You choosed 11`;
+  playerScore+=11;
+  document.querySelector(".player-score").textContent = `Your score is : ${playerScore}`;
+  buttonAce1.style.visibility = "hidden";
+  buttonAce2.style.visibility = "hidden";
+  buttonPlay.disabled = false;
+  buttonStop.disabled = false;
+};
