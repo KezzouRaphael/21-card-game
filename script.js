@@ -31,7 +31,6 @@ function dealerTurn(){
   {
     bustDealer = true;
   }
-  //document.querySelector(".computer-score").textContent = `Dealer score : ${dealerScore}`;
 };
 //Player hits 
 function playerTurn(){
@@ -42,12 +41,12 @@ function playerTurn(){
   if(playerScore >21)
   {
     bust = true;
-    //document.querySelector(".player-score").textContent = `Your score is ${playerScore}.You  bust`;
+    document.querySelector(".player-score").textContent += ` You  bust`;
     buttonPlay.disabled = true;
   }
   if(bust == false || playerScore == 21)
   {
-    //document.querySelector(".player-score").innerHTML = `Your score is ${playerScore}.You didn't bust`;
+    document.querySelector(".player-score").textContent += ` You didn't bust`;
     if(playerScore == 21)
     {
       buttonPlay.disabled = true;
@@ -61,7 +60,7 @@ function turn(e){
   {
     dealerTurn();
   }
-  if(bust == true || bustDealer == true)
+  if(bust == true || bustDealer == true || playerScore == 21)
   {
     stop();
   }
